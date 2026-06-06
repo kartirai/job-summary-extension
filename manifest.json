@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Job Summary Extractor",
+  "version": "1.0",
+  "description": "Instantly extract key job details from job postings",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Job Summary Extractor",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

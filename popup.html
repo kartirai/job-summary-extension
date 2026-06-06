@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    html {
+      resize: both;
+      overflow: auto;
+    }
+    
+    body {
+      width: 450px;
+      min-width: 350px;
+      max-width: 800px;
+      height: auto;
+      min-height: 400px;
+      max-height: 700px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+      resize: both;
+      overflow: auto;
+      position: relative;
+    }
+    
+    h2 {
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+      cursor: move;
+      user-select: none;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .field {
+      margin-bottom: 10px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    
+    .field:hover {
+      background: #f8f9fa;
+    }
+    
+    .label {
+      font-weight: 700;
+      font-size: 11px;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    
+    .value {
+      font-size: 13px;
+      color: #212529;
+      margin-top: 2px;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6c757d;
+      font-size: 14px;
+    }
+    
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      border-left: 4px solid #dc3545;
+    }
+    
+    .success {
+      background: #d4edda;
+      color: #155724;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+      border-left: 4px solid #28a745;
+    }
+    
+    .warning {
+      background: #fff3cd;
+      color: #856404;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+      border-left: 4px solid #ffc107;
+    }
+    
+    button {
+      background: #4361ee;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    button:hover {
+      background: #3a56d4;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(67,97,238,0.3);
+    }
+    
+    .retry {
+      background: #6c757d;
+    }
+    
+    .retry:hover {
+      background: #5a6268;
+    }
+    
+    .resize-handle {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      cursor: nw-resize;
+      background: linear-gradient(135deg, transparent 60%, #adb5bd 60%);
+      border-radius: 0 0 8px 0;
+      pointer-events: none;
+    }
+    
+    .resize-hint {
+      position: fixed;
+      bottom: 8px;
+      right: 8px;
+      font-size: 9px;
+      color: #adb5bd;
+      background: rgba(255,255,255,0.9);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+    
+    .site-badge {
+      font-size: 10px;
+      color: #6c757d;
+      margin-bottom: 12px;
+      text-align: center;
+      padding: 4px 8px;
+      background: #e9ecef;
+      border-radius: 20px;
+      display: inline-block;
+      width: auto;
+    }
+    
+    .badge-container {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📋 Job Summary Extractor</h2>
+  <div id="content">
+    <div class="loading">🔍 Loading job details...</div>
+  </div>
+  <div class="resize-handle"></div>
+  <div class="resize-hint">↘ drag to resize</div>
+  <script src="popup.js"></script>
+</body>
+</html>
